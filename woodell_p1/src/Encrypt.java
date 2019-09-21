@@ -11,42 +11,35 @@ public class Encrypt {
 		 * Print encrypted integer
 		 */
 		Scanner scnr = new Scanner(System.in);
-		int nE;
-		int encryptedNum;
-		int d1;
-		int d2;
-		int d3;
-		int d4;
+		int numToEncrypt;
+		int digitOne;
+		int digitTwo;
+		int digitThree;
+		int digitFour;
 		int temp;
 		//Scan number
 		System.out.print("Please enter a four digit integer here:");
-		nE = scnr.nextInt();
+		numToEncrypt = scnr.nextInt();
 		//Split into individual digits
-		d1 = nE / 1000;
-		d2 = (nE % 1000) / 100;   
-		d3 = ((nE % 1000) % 100) / 10;
-		d4 = ((nE % 1000) % 100) % 10;
-		System.out.printf("%d %d %d %d\n", d1, d2, d3, d4);
+		digitOne = numToEncrypt / 1000;
+		digitTwo = (numToEncrypt % 1000) / 100;   
+		digitThree = ((numToEncrypt % 1000) % 100) / 10;
+		digitFour = ((numToEncrypt % 1000) % 100) % 10;
 		//Assign digits with encrypted numbers
-		d1 = (d1 + 7) % 10;
-		d2 = (d2 + 7) % 10;
-		d3 = (d3 + 7) % 10;
-		d4 = (d4 + 7) % 10;
-		System.out.printf("%d %d %d %d\n", d1, d2, d3, d4);
+		digitOne = (digitOne + 7) % 10;
+		digitTwo = (digitTwo + 7) % 10;
+		digitThree = (digitThree + 7) % 10;
+		digitFour = (digitFour + 7) % 10;
 		//Swap 1 with 3
-		temp = d1;
-		d1 = d3;
-		d3 = temp;
+		temp = digitOne;
+		digitOne = digitThree;
+		digitThree = temp;
 		//Swap 2 with 4
-		temp = d2;
-		d2 = d4;
-		d4 = temp;
-		//Assign value to encrypted number object
-		encryptedNum = (d1 * 1000) + (d2 * 100) + (d3 * 10) + d4; 
+		temp = digitTwo;
+		digitTwo = digitFour;
+		digitFour = temp;
 		//Print encrypted number
-	 	System.out.println("Your encrypted number is " + encryptedNum);
-	 	System.out.printf("Your encrypted number is %d.\n", encryptedNum);
-	
-		
+	 	System.out.printf("Your encrypted number is %d%d%d%d.\n", digitOne, digitTwo, digitThree, digitFour);
+	 	scnr.close();
 	}
 }
